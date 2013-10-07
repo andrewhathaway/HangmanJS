@@ -55,6 +55,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 body {
+  color: white;
   font-size: 16px;
+  background: #179BE0;
   -webkit-font-smoothing: antialiased;
 }
