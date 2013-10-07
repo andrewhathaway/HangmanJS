@@ -41,6 +41,7 @@ $(function() {
 		 */
 		HangmanJS.setup_game = function() {
 			HangmanJS.open_game();
+			HangmanJS.bind_close();
 		}
 
 		/**
@@ -51,18 +52,14 @@ $(function() {
 			stage.addClass('show');
 		};
 
+		HangmanJS.bind_close = function() {
+			$('.js-to-menu').click(function(e) {
+				HangmanJS.to_menu($(this).data('from'));
+			});
+		}
+
 		HangmanJS.to_menu = function(from) {
-			switch(from) {
-
-				case 'game':
-
-					break;
-
-				case 'credits':
-
-					break;
-
-			};
+			$('.game-section.' + from).removeClass('show');
 		};
 
 	}
