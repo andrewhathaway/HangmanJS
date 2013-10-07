@@ -15,6 +15,9 @@ body {
 	position: relative;
 	background:  #179BE0;
 	-webkit-font-smoothing: antialiased;
+
+	min-width: 720px;
+	min-height: 720px;
 }
 
 .game-section {
@@ -46,3 +49,16 @@ body {
 	}
 }
 
+.site-container {
+	top: 50%;
+	left: 50%;
+	width: 700px;
+	height: 700px;
+	position: absolute;
+	margin-left: -350px;
+	margin-top: -350px;
+}
+
+.game-section.menu {
+
+}
