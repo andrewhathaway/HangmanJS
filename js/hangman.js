@@ -1,4 +1,4 @@
-(function($) {
+$(function() {
 
 	var HangmanJS = function() {
 
@@ -12,7 +12,7 @@
 		/**
 		 * Default words to pick from
 		 */
-		this.words = [
+		HangmanJS.game_words = [
 			'technology',
 			'fantastic'
 		];
@@ -21,7 +21,48 @@
 		 * Initiate HangmanJS
 		 */
 		this.init = function() {
+			HangmanJS.bind_menu();
+		};
 
+		/**
+		 * Bind menu buttons
+		 */
+		HangmanJS.bind_menu = function() {
+			var play_button = $('#play-game');
+
+			play_button.click(function(e) {
+				e.preventDefault();
+				HangmanJS.setup_game();
+			});
+		}
+
+		/**
+		 * Setup the game
+		 */
+		HangmanJS.setup_game = function() {
+			HangmanJS.open_game();
+		}
+
+		/**
+		 * Open the game window
+		 */
+		HangmanJS.open_game = function() {
+			var stage = $('#game-stage');
+			stage.addClass('show');
+		};
+
+		HangmanJS.to_menu = function(from) {
+			switch(from) {
+
+				case 'game':
+
+					break;
+
+				case 'credits':
+
+					break;
+
+			};
 		};
 
 	}
@@ -29,4 +70,4 @@
 	var hangman = new HangmanJS();
 	hangman.init();
 
-})($);
+});
