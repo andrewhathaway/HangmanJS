@@ -58,6 +58,9 @@ $(function() {
 			});
 		}
 
+		/**
+		 * View the credits page
+		 */
 		HangmanJS.view_credits = function() {
 			var credits = $('#credits');
 			credits.addClass('show');
@@ -81,16 +84,25 @@ $(function() {
 			stage.addClass('show');
 		};
 
+		/**
+		 * Close button bindings
+		 */
 		HangmanJS.bind_close = function() {
 			$('.js-to-menu').click(function(e) {
 				HangmanJS.to_menu($(this).data('from'));
 			});
 		}
 
+		/**
+		 * Go to the menu
+		 */
 		HangmanJS.to_menu = function(from) {
 			$('.game-section.' + from).removeClass('show');
 		};
 
+		/**
+		 * Pick a random word
+		 */
 		HangmanJS.pick_word = function() {
 			var item = HangmanJS.game_words[Math.floor(Math.random() * HangmanJS.game_words.length)];
 
