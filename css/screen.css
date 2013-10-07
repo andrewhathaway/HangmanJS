@@ -84,6 +84,9 @@ body {
   -o-transition: all 0.25s ease;
   transition: all 0.25s ease;
 }
+.game-section.game, .game-section.credits {
+  z-index: 99;
+}
 .game-section.game {
   right: -100%;
   background: red;

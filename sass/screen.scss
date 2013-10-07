@@ -23,6 +23,10 @@ body {
 	position: absolute;
 	@include transition(all .25s ease);
 
+	&.game, &.credits {
+		z-index: 99;
+	}
+
 	&.game {
 		right: -100%;
 		background: red;

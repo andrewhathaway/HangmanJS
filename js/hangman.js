@@ -29,12 +29,25 @@ $(function() {
 		 */
 		HangmanJS.bind_menu = function() {
 			var play_button = $('#play-game');
+			var credits_button = $('#view-credits');
 
 			play_button.click(function(e) {
 				e.preventDefault();
 				HangmanJS.setup_game();
 			});
+
+			credits_button.click(function(e) {
+				e.preventDefault();
+				HangmanJS.view_credits();
+			});
 		}
+
+		HangmanJS.view_credits = function() {
+			var credits = $('#credits');
+			credits.addClass('show');
+
+			HangmanJS.bind_close();
+		};
 
 		/**
 		 * Setup the game
