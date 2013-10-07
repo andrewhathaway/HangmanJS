@@ -91,6 +91,16 @@ $(function() {
 			$('.game-section.' + from).removeClass('show');
 		};
 
+		HangmanJS.pick_word = function() {
+			var item = HangmanJS.game_words[Math.floor(Math.random() * HangmanJS.game_words.length)];
+
+			return {
+				word: item,
+				length: item.length,
+				chars: item.split('')
+			};
+		};
+
 	}
 
 	var hangman = new HangmanJS();
