@@ -14,7 +14,23 @@ $(function() {
 		 */
 		HangmanJS.game_words = [
 			'technology',
-			'fantastic'
+			'fantastic',
+			'buckaroo',
+			'bandwagon',
+			'icebox',
+			'jawbreaker',
+			'zombie',
+			'cheese',
+			'because',
+			'football',
+			'jazz',
+			'exponential',
+			'atlantis',
+			'psychologist',
+			'archaeologist',
+			'quarantine',
+			'champion',
+			'protestant'
 		];
 
 		/**
