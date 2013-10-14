@@ -135,7 +135,7 @@ body {
 		.person,
 		.word-info,
 		.used-words {
-			padding: 5px;
+			padding: 10px;
 			@include border-radius(3px);
 			background: rgba(0, 0, 0, .05);
 			@include box-sizing(border-box);
@@ -148,7 +148,7 @@ body {
 
 		.person,
 		.word-info {
-			height: 350px;
+			height: 515px;
 		}
 
 		.word-info {
@@ -165,19 +165,30 @@ body {
 
 		.used-words {
 			width: 700px;
-			height: 250px;
+			height: 85px;
 			margin-top: 5px;
 
 			.alphabet {
 				width: 100%;
+				margin-top: 10px;
 
 				li {
-					display: block;
-					width: 22px;
-					height: 35px;
 					float: left;
+					width: 20px;
+					height: 35px;
+					display: block;
 					margin-right: 5px;
+					@include border-radius(3px);
 					background: rgba(0, 0, 0, .05);
+
+					color: white;
+					line-height: 35px;
+					text-align: center;
+					font-family: $prox-bold;
+
+					&.used {
+						background: #FF4E51;
+					}
 				}
 			}
 		}
