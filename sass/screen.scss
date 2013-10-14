@@ -9,6 +9,8 @@ $prox-bold: 'ProximaNovaRgBold', sans-serif;
 .pos-rel { position: relative; }
 .pos-abs { position: absolute; }
 
+.clear { clear: both; }
+
 html, body {
 	height: 100%;
 }
@@ -98,12 +100,15 @@ body {
 }
 
 .game-section.game {
+
 	.menu-bar {
 		width: 100%;
-		height: 35px;
+		height: 45px;
+		padding: 5px;
+		margin-bottom: 50px;
 		@include border-radius(5px);
 		background: rgba(0, 0, 0, .05);
-		padding: 5px;
+		@include box-sizing(border-box);
 
 		a {
 			width: auto;
@@ -123,5 +128,27 @@ body {
 				background: rgba(0, 0, 0, .2);
 			}
 		}
+	}
+
+	.game-content {
+
+		.word-info {
+			float: left;
+			width: 395px;
+			height: 350px;
+		}
+
+		.person {
+			float: right;
+			width: 300px;
+			height: 350px;
+		}
+
+		.used-words {
+			width: 700px;
+			height: 250px;
+			margin-top: 5px;
+		}
+
 	}
 }

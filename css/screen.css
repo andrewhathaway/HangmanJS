@@ -63,6 +63,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   position: absolute;
 }
 
+.clear {
+  clear: both;
+}
+
 html, body {
   height: 100%;
 }
@@ -154,14 +158,18 @@ body {
 
 .game-section.game .menu-bar {
   width: 100%;
-  height: 35px;
+  height: 45px;
+  padding: 5px;
+  margin-bottom: 50px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px;
   background: rgba(0, 0, 0, 0.05);
-  padding: 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .game-section.game .menu-bar a {
   width: auto;
@@ -185,4 +193,19 @@ body {
 }
 .game-section.game .menu-bar a:hover {
   background: rgba(0, 0, 0, 0.2);
+}
+.game-section.game .game-content .word-info {
+  float: left;
+  width: 395px;
+  height: 350px;
+}
+.game-section.game .game-content .person {
+  float: right;
+  width: 300px;
+  height: 350px;
+}
+.game-section.game .game-content .used-words {
+  width: 700px;
+  height: 250px;
+  margin-top: 5px;
 }
