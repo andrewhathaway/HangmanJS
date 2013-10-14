@@ -34,12 +34,17 @@ $(function() {
 		];
 
 		/**
+		 * Array of used characters
+		 */
+		HangmanJS.used_characters = [];
+
+		/**
 		 * Initiate HangmanJS
 		 */
 		this.init = function() {
 			HangmanJS.bind_menu();
 
-			if(document.location.href.indexOf('#game') > -1) {
+			if (document.location.href.indexOf('#game') > -1) {
 				HangmanJS.setup_game();
 			}
 		};
@@ -66,9 +71,7 @@ $(function() {
 		 * View the credits page
 		 */
 		HangmanJS.view_credits = function() {
-			var credits = $('#credits');
-			credits.addClass('show');
-
+			$('#credits').addClass('show');
 			HangmanJS.bind_close();
 		};
 
@@ -83,6 +86,7 @@ $(function() {
 
 			word = HangmanJS.pick_word();
 
+			HangmanJS.bind_enter_character();
 			HangmanJS.setup_alphabet();
 		}
 
@@ -109,7 +113,7 @@ $(function() {
 		HangmanJS.to_menu = function(from) {
 			$('.game-section.' + from).removeClass('show');
 
-			if(from == 'game') {
+			if (from == 'game') {
 				HangmanJS.revert_game();
 			}
 		};
@@ -127,6 +131,9 @@ $(function() {
 			};
 		};
 
+		/**
+		 * Setup the list of the alphabet
+		 */
 		HangmanJS.setup_alphabet = function() {
 			var list = $('#alphabet');
 			var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -138,10 +145,45 @@ $(function() {
 			}
 		}
 
-		HangmanJS.revert_game = function() {
-			var list = $('#alphabet');
+		HangmanJS.bind_enter_character = function() {
+			var input = $('#enter-char-input');
 
-			list.empty();
+			input.keypress(function(e) {
+				if (e.which  == 13) {
+					var c = input.val();
+
+					if (c != '') {
+						HangmanJS.input_char(c);
+						input.val('');
+					}
+				}
+			});
+		}
+
+		/**
+		 * Character delegate
+		 */
+		HangmanJS.input_char = function(character) {
+			character = character.toUpperCase();
+
+			if ($.inArray(character, HangmanJS.used_characters) == -1) {
+
+				HangmanJS.used_characters.push(character);
+				$('#alphabet li[data-char=' + character + ']').addClass('used');
+
+				//check if its in word
+
+			} else {
+				alert('This character has already been used');
+			}
+		}
+
+		/**
+		 * Reverts the game
+		 */
+		HangmanJS.revert_game = function() {
+			$('#alphabet').empty();
+			HangmanJS.used_characters = [];
 		}
 
 	}
