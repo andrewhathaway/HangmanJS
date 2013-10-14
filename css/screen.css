@@ -194,15 +194,31 @@ body {
 .game-section.game .menu-bar a:hover {
   background: rgba(0, 0, 0, 0.2);
 }
+.game-section.game .game-content .person,
+.game-section.game .game-content .word-info,
+.game-section.game .game-content .used-words {
+  padding: 5px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.05);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.game-section.game .game-content .person,
+.game-section.game .game-content .word-info {
+  height: 350px;
+}
 .game-section.game .game-content .word-info {
   float: left;
   width: 395px;
-  height: 350px;
 }
 .game-section.game .game-content .person {
   float: right;
   width: 300px;
-  height: 350px;
 }
 .game-section.game .game-content .used-words {
   width: 700px;

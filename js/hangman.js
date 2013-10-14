@@ -125,6 +125,7 @@ $(function() {
 
 	}
 
+	//Move this shit
 	var hangman = new HangmanJS();
 	hangman.init();
 

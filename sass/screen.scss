@@ -132,16 +132,28 @@ body {
 
 	.game-content {
 
+		.person,
+		.word-info,
+		.used-words {
+			padding: 5px;
+			@include border-radius(3px);
+			background: rgba(0, 0, 0, .05);
+			@include box-sizing(border-box);
+		}
+
+		.person,
+		.word-info {
+			height: 350px;
+		}
+
 		.word-info {
 			float: left;
 			width: 395px;
-			height: 350px;
 		}
 
 		.person {
 			float: right;
 			width: 300px;
-			height: 350px;
 		}
 
 		.used-words {
