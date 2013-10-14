@@ -38,6 +38,10 @@ $(function() {
 		 */
 		this.init = function() {
 			HangmanJS.bind_menu();
+
+			if(document.location.href.indexOf('#game') > -1) {
+				HangmanJS.setup_game();
+			}
 		};
 
 		/**
@@ -72,8 +76,14 @@ $(function() {
 		 * Setup the game
 		 */
 		HangmanJS.setup_game = function() {
+			var word;
+
 			HangmanJS.open_game();
 			HangmanJS.bind_close();
+
+			word = HangmanJS.pick_word();
+
+
 		}
 
 		/**

@@ -38,7 +38,7 @@ body {
 
 	&.game {
 		right: -100%;
-		background: red;
+		background: #FF9A65;
 
 		&.show {
 			right: 0;
@@ -93,6 +93,35 @@ body {
 
 		&:hover {
 			background: darken(#1586C1, 10);
+		}
+	}
+}
+
+.game-section.game {
+	.menu-bar {
+		width: 100%;
+		height: 35px;
+		@include border-radius(5px);
+		background: rgba(0, 0, 0, .05);
+		padding: 5px;
+
+		a {
+			width: auto;
+			height: 35px;
+			padding: 0 20px;
+			display: inline-block;
+			@include border-radius(5px);
+			background: rgba(0, 0, 0, .1);
+			@include transition(all .25s ease);
+
+			color: white;
+			line-height: 35px;
+			text-decoration: none;
+			font-family: $prox-bold;
+
+			&:hover {
+				background: rgba(0, 0, 0, .2);
+			}
 		}
 	}
 }

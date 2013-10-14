@@ -93,7 +93,7 @@ body {
 }
 .game-section.game {
   right: -100%;
-  background: red;
+  background: #FF9A65;
 }
 .game-section.game.show {
   right: 0;
@@ -150,4 +150,39 @@ body {
 }
 .game-section.menu .content .button:hover {
   background: #106693;
+}
+
+.game-section.game .menu-bar {
+  width: 100%;
+  height: 35px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 5px;
+}
+.game-section.game .menu-bar a {
+  width: auto;
+  height: 35px;
+  padding: 0 20px;
+  display: inline-block;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.1);
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  color: white;
+  line-height: 35px;
+  text-decoration: none;
+  font-family: "ProximaNovaRgBold", sans-serif;
+}
+.game-section.game .menu-bar a:hover {
+  background: rgba(0, 0, 0, 0.2);
 }
