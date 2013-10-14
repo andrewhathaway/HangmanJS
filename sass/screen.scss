@@ -139,6 +139,11 @@ body {
 			@include border-radius(3px);
 			background: rgba(0, 0, 0, .05);
 			@include box-sizing(border-box);
+
+			h2 {
+				font-size: 18px;
+				font-family: $prox-bold;
+			}
 		}
 
 		.person,
@@ -149,6 +154,8 @@ body {
 		.word-info {
 			float: left;
 			width: 395px;
+
+
 		}
 
 		.person {
@@ -160,6 +167,19 @@ body {
 			width: 700px;
 			height: 250px;
 			margin-top: 5px;
+
+			.alphabet {
+				width: 100%;
+
+				li {
+					display: block;
+					width: 22px;
+					height: 35px;
+					float: left;
+					margin-right: 5px;
+					background: rgba(0, 0, 0, .05);
+				}
+			}
 		}
 
 	}

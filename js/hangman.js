@@ -83,7 +83,7 @@ $(function() {
 
 			word = HangmanJS.pick_word();
 
-
+			HangmanJS.setup_alphabet();
 		}
 
 		/**
@@ -108,6 +108,10 @@ $(function() {
 		 */
 		HangmanJS.to_menu = function(from) {
 			$('.game-section.' + from).removeClass('show');
+
+			if(from == 'game') {
+				HangmanJS.revert_game();
+			}
 		};
 
 		/**
@@ -122,6 +126,23 @@ $(function() {
 				chars: item.split('')
 			};
 		};
+
+		HangmanJS.setup_alphabet = function() {
+			var list = $('#alphabet');
+			var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+
+			for(var i = 0; i < alphabet.length; i++) {
+				var next_char = alphabet.charAt(i);
+				list.append('<li data-char="' + next_char + '">' + next_char + '</li>');
+			}
+		}
+
+		HangmanJS.revert_game = function() {
+			var list = $('#alphabet');
+
+			list.empty();
+		}
 
 	}
 
