@@ -237,7 +237,7 @@ input {
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
   border-radius: 3px;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.1);
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -298,4 +298,19 @@ input {
 }
 .game-section.game .game-content .used-words .alphabet li.used {
   background: #FF4E51;
+}
+
+.word-characters {
+  clear: both;
+  margin: 20px 0;
+}
+.word-characters li {
+  float: left;
+  width: 20px;
+  height: 25px;
+  display: block;
+  line-height: 25px;
+  margin-right: 4px;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }

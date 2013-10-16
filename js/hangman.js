@@ -39,6 +39,21 @@ $(function() {
 		HangmanJS.used_characters = [];
 
 		/**
+		 * The current word
+		 */
+		HangmanJS.current_word = {};
+
+		/**
+		 * The death score
+		 */
+		HangmanJS.fail_score = 0;
+
+		/**
+		 *
+		 */
+		HangmanJS.failed_score = 11;
+
+		/**
 		 * Initiate HangmanJS
 		 */
 		this.init = function() {
@@ -79,12 +94,12 @@ $(function() {
 		 * Setup the game
 		 */
 		HangmanJS.setup_game = function() {
-			var word;
-
 			HangmanJS.open_game();
 			HangmanJS.bind_close();
 
-			word = HangmanJS.pick_word();
+			HangmanJS.current_word = HangmanJS.pick_word();
+
+			HangmanJS.setup_characters();
 
 			HangmanJS.bind_enter_character();
 			HangmanJS.setup_alphabet();
@@ -122,12 +137,20 @@ $(function() {
 		 * Pick a random word
 		 */
 		HangmanJS.pick_word = function() {
+			var chars;
+			var uppercase_chars = [];
 			var item = HangmanJS.game_words[Math.floor(Math.random() * HangmanJS.game_words.length)];
+
+			chars = item.split('');
+
+			for (var i = 0; i < chars.length; i++) {
+    			uppercase_chars.push(chars[i].toUpperCase());
+			}
 
 			return {
 				word: item,
 				length: item.length,
-				chars: item.split('')
+				chars: uppercase_chars
 			};
 		};
 
@@ -138,8 +161,7 @@ $(function() {
 			var list = $('#alphabet');
 			var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-
-			for(var i = 0; i < alphabet.length; i++) {
+			for (var i = 0; i < alphabet.length; i++) {
 				var next_char = alphabet.charAt(i);
 				list.append('<li data-char="' + next_char + '">' + next_char + '</li>');
 			}
@@ -167,16 +189,35 @@ $(function() {
 			character = character.toUpperCase();
 
 			if ($.inArray(character, HangmanJS.used_characters) == -1) {
-
 				HangmanJS.used_characters.push(character);
 				$('#alphabet li[data-char=' + character + ']').addClass('used');
 
-				//check if its in word
+				if ($.inArray(character, HangmanJS.current_word.chars) > -1) {
 
-			} else {
-				alert('This character has already been used');
+					for (var i = 0; i < HangmanJS.current_word.chars.length; i++) {
+
+						if (HangmanJS.current_word.chars[i] == character) {
+							$('.word-characters li[data-id="' + i + '"]').html(character);
+						}
+
+						//console.log('I: ' + i + ' Char:' + HangmanJS.current_word.chars[i] + ' ENTERED: ' + character);
+					}
+
+				} else {
+					HangmanJS.fail_score++;
+				}
 			}
 		}
+
+		HangmanJS.setup_characters = function() {
+			var list = $('.word-characters');
+
+			console.log(HangmanJS.current_word.word);
+
+			for (var i = 0; i < HangmanJS.current_word.chars.length; i++) {
+				list.append('<li data-id="' + i + '"></li>');
+			}
+		};
 
 		/**
 		 * Reverts the game
