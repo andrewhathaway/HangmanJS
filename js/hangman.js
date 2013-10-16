@@ -49,7 +49,7 @@ $(function() {
 		HangmanJS.fail_score = 0;
 
 		/**
-		 *
+		 * The score at which the player fails
 		 */
 		HangmanJS.failed_score = 11;
 
@@ -174,10 +174,11 @@ $(function() {
 				if (e.which  == 13) {
 					var c = input.val();
 
-					if (c != '') {
+					if(c != '' && c.match(/^[a-zA-Z]+$/)) {
 						HangmanJS.input_char(c);
-						input.val('');
 					}
+
+					input.val('');
 				}
 			});
 		}
@@ -200,19 +201,22 @@ $(function() {
 							$('.word-characters li[data-id="' + i + '"]').html(character);
 						}
 
-						//console.log('I: ' + i + ' Char:' + HangmanJS.current_word.chars[i] + ' ENTERED: ' + character);
 					}
 
 				} else {
 					HangmanJS.fail_score++;
+					console.log(HangmanJS.fail_score);
+
+					if(HangmanJS.fail_score >= HangmanJS.failed_score) {
+						$('#overlay').addClass('show');
+						$('#overlay .modal.failed').addClass('show');
+					}
 				}
 			}
 		}
 
 		HangmanJS.setup_characters = function() {
 			var list = $('.word-characters');
-
-			console.log(HangmanJS.current_word.word);
 
 			for (var i = 0; i < HangmanJS.current_word.chars.length; i++) {
 				list.append('<li data-id="' + i + '"></li>');

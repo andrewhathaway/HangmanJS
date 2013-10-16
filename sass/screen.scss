@@ -242,3 +242,25 @@ input {
 		border-bottom: 1px solid rgba(0, 0, 0, .3);
 	}
 }
+
+.overlay {
+	top: 0;
+	left: 0;
+	z-index: 99;
+	width: 100%;
+	height: 100%;
+	display: none;
+	position: absolute;
+	@include border-radius(3px);
+	background: rgba(0, 0, 0, .5);
+
+	&.show {
+		display: block;
+	}
+
+	.modal {
+		width: 250px;
+		height: 100px;
+		background: red;
+	}
+}
