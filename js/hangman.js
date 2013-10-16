@@ -54,6 +54,11 @@ $(function() {
 		HangmanJS.failed_score = 8;
 
 		/**
+		 * Count of correct chars guessed
+		 */
+		HangmanJS.correctly_guessed = 0;
+
+		/**
 		 * Initiate HangmanJS
 		 */
 		this.init = function() {
@@ -101,10 +106,9 @@ $(function() {
 
 			HangmanJS.setup_characters();
 
+			console.log(HangmanJS.current_word);
 			HangmanJS.bind_enter_character();
 			HangmanJS.setup_alphabet();
-
-			HangmanJS.bind_reset();
 		}
 
 		/**
@@ -200,14 +204,20 @@ $(function() {
 					for (var i = 0; i < HangmanJS.current_word.chars.length; i++) {
 
 						if (HangmanJS.current_word.chars[i] == character) {
+							HangmanJS.correctly_guessed++;
 							$('.word-characters li[data-id="' + i + '"]').html(character);
 						}
 
 					}
 
+					if (HangmanJS.correctly_guessed >= HangmanJS.current_word.length) {
+						$('input').blur();
+						$('#overlay').addClass('show');
+						$('#overlay .modal.success').addClass('show');
+					}
+
 				} else {
 					HangmanJS.fail_score++;
-					console.log(HangmanJS.fail_score);
 
 					if(HangmanJS.fail_score >= HangmanJS.failed_score) {
 						$('input').blur();
@@ -226,15 +236,6 @@ $(function() {
 			}
 		};
 
-		HangmanJS.bind_reset = function() {
-			$('.reset-button').click(function(e) {
-				e.preventDefault();
-
-				HangmanJS.to_menu('game');
-				HangmanJS.setup_game();
-			});
-		}
-
 		/**
 		 * Reverts the game
 		 */
@@ -243,11 +244,13 @@ $(function() {
 			HangmanJS.used_characters = [];
 
 			HangmanJS.fail_score = 0;
+			HangmanJS.correctly_guessed = 0;
 
 			$('.word-characters').html('');
 
 			$('#overlay').removeClass('show');
 			$('#overlay .modal.failed').removeClass('show');
+			$('#overlay .modal.succuess').removeClass('show');
 		}
 
 	}

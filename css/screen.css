@@ -337,8 +337,10 @@ input {
   width: 350px;
   height: 150px;
   padding: 15px;
+  display: none;
   margin-top: 275px;
   margin-left: 150px;
+  text-align: center;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -347,10 +349,31 @@ input {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  text-align: center;
+  -webkit-transition: background 0.25s ease;
+  -moz-transition: background 0.25s ease;
+  -o-transition: background 0.25s ease;
+  transition: background 0.25s ease;
 }
 .overlay .modal.failed {
   background: #ea4747;
+}
+.overlay .modal.failed a {
+  background: #c44343;
+}
+.overlay .modal.failed a:hover {
+  background: #b53939;
+}
+.overlay .modal.success {
+  background: #66b53f;
+}
+.overlay .modal.success a {
+  background: rgba(0, 0, 0, 0.2);
+}
+.overlay .modal.success a:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+.overlay .modal.show {
+  display: block;
 }
 .overlay .modal h2 {
   font-size: 18px;
@@ -361,9 +384,9 @@ input {
   line-height: 1.4em;
 }
 .overlay .modal a {
+  width: 100%;
+  padding: 10px 0;
   margin-top: 15px;
-  padding: 10px 25px;
-  background: #c44343;
   display: inline-block;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -373,9 +396,6 @@ input {
   color: white;
   text-decoration: none;
   font-family: "ProximaNovaRgBold", sans-serif;
-}
-.overlay .modal a:hover {
-  background: #b53939;
 }
 .overlay .modal a.left {
   margin-right: 10px;
