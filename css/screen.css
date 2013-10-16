@@ -323,18 +323,60 @@ input {
   height: 100%;
   display: none;
   position: absolute;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
-  background: rgba(0, 0, 0, 0.5);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.3);
 }
 .overlay.show {
   display: block;
 }
 .overlay .modal {
-  width: 250px;
-  height: 100px;
-  background: red;
+  width: 350px;
+  height: 150px;
+  padding: 15px;
+  margin-top: 275px;
+  margin-left: 150px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: center;
+}
+.overlay .modal.failed {
+  background: #ea4747;
+}
+.overlay .modal h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-family: "ProximaNovaRgBold", sans-serif;
+}
+.overlay .modal p {
+  line-height: 1.4em;
+}
+.overlay .modal a {
+  margin-top: 15px;
+  padding: 10px 25px;
+  background: #c44343;
+  display: inline-block;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  color: white;
+  text-decoration: none;
+  font-family: "ProximaNovaRgBold", sans-serif;
+}
+.overlay .modal a:hover {
+  background: #b53939;
+}
+.overlay .modal a.left {
+  margin-right: 10px;
 }

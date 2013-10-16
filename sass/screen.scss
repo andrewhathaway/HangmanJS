@@ -251,16 +251,54 @@ input {
 	height: 100%;
 	display: none;
 	position: absolute;
-	@include border-radius(3px);
-	background: rgba(0, 0, 0, .5);
+	@include border-radius(5px);
+	background: rgba(0, 0, 0, .3);
 
 	&.show {
 		display: block;
 	}
 
 	.modal {
-		width: 250px;
-		height: 100px;
-		background: red;
+		width: 350px;
+		height: 150px;
+		padding: 15px;
+		margin-top: 275px;
+		margin-left: 150px;
+		@include border-radius(5px);
+		@include box-sizing(border-box);
+
+		&.failed {
+			background: #ea4747;
+		}
+
+		text-align: center;
+
+		h2 {
+			font-size: 18px;
+			margin-bottom: 10px;
+			font-family: $prox-bold;
+		}
+
+		p {
+			line-height: 1.4em;
+		}
+
+		a {
+			margin-top: 15px;
+			padding: 10px 25px;
+			background: #c44343;
+			display: inline-block;
+			@include border-radius(3px);
+
+			color: white;
+			text-decoration: none;
+			font-family: $prox-bold;
+
+			&:hover {
+				background: darken(#c44343, 5);
+			}
+
+			&.left { margin-right: 10px; }
+		}
 	}
 }

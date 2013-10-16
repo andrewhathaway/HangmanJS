@@ -51,7 +51,7 @@ $(function() {
 		/**
 		 * The score at which the player fails
 		 */
-		HangmanJS.failed_score = 11;
+		HangmanJS.failed_score = 8;
 
 		/**
 		 * Initiate HangmanJS
@@ -103,6 +103,8 @@ $(function() {
 
 			HangmanJS.bind_enter_character();
 			HangmanJS.setup_alphabet();
+
+			HangmanJS.bind_reset();
 		}
 
 		/**
@@ -208,6 +210,7 @@ $(function() {
 					console.log(HangmanJS.fail_score);
 
 					if(HangmanJS.fail_score >= HangmanJS.failed_score) {
+						$('input').blur();
 						$('#overlay').addClass('show');
 						$('#overlay .modal.failed').addClass('show');
 					}
@@ -223,12 +226,28 @@ $(function() {
 			}
 		};
 
+		HangmanJS.bind_reset = function() {
+			$('.reset-button').click(function(e) {
+				e.preventDefault();
+
+				HangmanJS.to_menu('game');
+				HangmanJS.setup_game();
+			});
+		}
+
 		/**
 		 * Reverts the game
 		 */
 		HangmanJS.revert_game = function() {
 			$('#alphabet').empty();
 			HangmanJS.used_characters = [];
+
+			HangmanJS.fail_score = 0;
+
+			$('.word-characters').html('');
+
+			$('#overlay').removeClass('show');
+			$('#overlay .modal.failed').removeClass('show');
 		}
 
 	}
