@@ -105,8 +105,8 @@ $(function() {
 			HangmanJS.current_word = HangmanJS.pick_word();
 
 			HangmanJS.setup_characters();
+			HangmanJS.setup_info();
 
-			console.log(HangmanJS.current_word);
 			HangmanJS.bind_enter_character();
 			HangmanJS.setup_alphabet();
 		}
@@ -236,6 +236,10 @@ $(function() {
 			}
 		};
 
+		HangmanJS.setup_info = function() {
+			$('.word-length').html(HangmanJS.current_word.length);
+		};
+
 		/**
 		 * Reverts the game
 		 */
@@ -251,7 +255,7 @@ $(function() {
 			$('#overlay').removeClass('show');
 			$('#overlay .modal.failed').removeClass('show');
 			$('#overlay .modal.succuess').removeClass('show');
-		}
+		};
 
 	}
 

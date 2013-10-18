@@ -223,7 +223,7 @@ input {
 }
 .game-section.game .game-content .person,
 .game-section.game .game-content .word-info {
-  height: 515px;
+  height: 175px;
 }
 .game-section.game .game-content .word-info {
   float: left;
