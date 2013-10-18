@@ -426,4 +426,52 @@ input {
 
 .game-section.credits .col {
   float: left;
+  padding: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.1);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.game-section.credits .left-col {
+  width: 500px;
+  margin-right: 10px;
+}
+.game-section.credits .left-col h2 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.game-section.credits .left-col p {
+  line-height: 1.5em;
+  margin-bottom: 20px;
+}
+.game-section.credits .left-col ul {
+  list-style: disc;
+  padding-left: 1em;
+}
+.game-section.credits .left-col ul li {
+  margin-bottom: 10px;
+}
+.game-section.credits .left-col ul li:last-of-type {
+  margin-bottom: 0;
+}
+.game-section.credits .left-col a {
+  color: #C9FFD5;
+  text-decoration: none;
+}
+.game-section.credits .right-col {
+  width: 190px;
+}
+.game-section.credits .right-col img {
+  width: 100%;
+  height: auto;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
 }
