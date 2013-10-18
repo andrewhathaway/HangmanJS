@@ -183,7 +183,7 @@ $(function() {
 				if (e.which  == 13) {
 					var c = input.val();
 
-					if(c != '' && c.match(/^[a-zA-Z]+$/)) {
+					if (c != '' && c.match(/^[a-zA-Z]+$/)) {
 						HangmanJS.input_char(c);
 					}
 
@@ -224,7 +224,7 @@ $(function() {
 
 					HangmanJS.update_score();
 
-					if(HangmanJS.fail_score >= HangmanJS.failed_score) {
+					if (HangmanJS.fail_score >= HangmanJS.failed_score) {
 						$('input').blur();
 						$('#overlay').addClass('show');
 						$('#overlay .modal.failed').addClass('show');

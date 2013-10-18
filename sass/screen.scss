@@ -1,10 +1,9 @@
 @import "compass/reset";
 @import "compass/css3";
 
-@import "../fonts/proxima/proxima.css";
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
-$prox-reg: 'ProximaNovaRgRegular', sans-serif;
-$prox-bold: 'ProximaNovaRgBold', sans-serif;
+$open-sans: 'Open Sans', sans-serif;
 
 .pos-rel { position: relative; }
 .pos-abs { position: absolute; }
@@ -22,7 +21,7 @@ body {
 	position: relative;
 	background:  #179BE0;
 	-webkit-font-smoothing: antialiased;
-	font-family: $prox-reg;
+	font-family: $open-sans;
 
 	min-width: 720px;
 	min-height: 720px;
@@ -31,7 +30,7 @@ body {
 input {
 	outline: none;
 	font-size: 14px;
-	font-family: $prox-reg;
+	font-family: $open-sans;
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -95,7 +94,7 @@ input {
 		text-align: center;
 		line-height: 60px;
 		color: white;
-		font-family: $prox-bold;
+		font-weight: 700;
 		font-size: 1.375em;
 		@include transition(background .25s ease);
 
@@ -128,7 +127,7 @@ input {
 			color: white;
 			line-height: 35px;
 			text-decoration: none;
-			font-family: $prox-bold;
+			font-weight: 700;
 
 			&:hover {
 				background: rgba(0, 0, 0, .2);
@@ -148,7 +147,7 @@ input {
 
 			h2 {
 				font-size: 18px;
-				font-family: $prox-bold;
+				font-weight: 700;
 			}
 		}
 
@@ -170,7 +169,7 @@ input {
 
 				h3 {
 					margin-bottom: 10px;
-					font-family: $prox-bold;
+					font-weight: 700;
 				}
 
 				.input {
@@ -195,7 +194,7 @@ input {
 				margin-bottom: 10px;
 			}
 
-			.bold { font-family: $prox-bold; }
+			.bold { font-weight: 700; }
 
 			ul {
 				list-style: disc;
@@ -219,7 +218,7 @@ input {
 				li {
 					float: left;
 					width: 20px;
-					height: 35px;
+					height: 38px;
 					display: block;
 					margin-right: 5px;
 					@include border-radius(3px);
@@ -229,7 +228,7 @@ input {
 					color: white;
 					line-height: 35px;
 					text-align: center;
-					font-family: $prox-bold;
+					font-weight: 700;
 
 					&.used {
 						background: #FF4E51;
@@ -315,7 +314,7 @@ input {
 		h2 {
 			font-size: 18px;
 			margin-bottom: 10px;
-			font-family: $prox-bold;
+			font-weight: 700;
 		}
 
 		p { line-height: 1.4em; }
@@ -329,7 +328,7 @@ input {
 
 			color: white;
 			text-decoration: none;
-			font-family: $prox-bold;
+			font-weight: 700;
 
 			&.left { margin-right: 10px; }
 		}
