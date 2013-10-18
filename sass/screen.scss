@@ -139,9 +139,9 @@ input {
 
 	.game-content {
 
-		.person,
 		.word-info,
-		.used-words {
+		.used-words,
+		.game-information {
 			padding: 10px;
 			@include border-radius(3px);
 			background: rgba(0, 0, 0, .05);
@@ -153,8 +153,8 @@ input {
 			}
 		}
 
-		.person,
-		.word-info {
+		.word-info,
+		.game-information {
 			height: 175px;
 		}
 
@@ -188,9 +188,24 @@ input {
 			}
 		}
 
-		.person {
+		.game-information {
 			float: right;
 			width: 300px;
+
+			h2 {
+				margin-bottom: 10px;
+			}
+
+			.bold { font-family: $prox-bold; }
+
+			ul {
+				list-style: disc;
+				padding-left: 1em;
+
+				li {
+					margin-bottom: 5px;
+				}
+			}
 		}
 
 		.used-words {

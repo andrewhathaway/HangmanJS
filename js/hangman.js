@@ -173,6 +173,9 @@ $(function() {
 			}
 		}
 
+		/**
+		 * Bind the event handler for character enter
+		 */
 		HangmanJS.bind_enter_character = function() {
 			var input = $('#enter-char-input');
 
@@ -219,6 +222,8 @@ $(function() {
 				} else {
 					HangmanJS.fail_score++;
 
+					HangmanJS.update_score();
+
 					if(HangmanJS.fail_score >= HangmanJS.failed_score) {
 						$('input').blur();
 						$('#overlay').addClass('show');
@@ -228,6 +233,9 @@ $(function() {
 			}
 		}
 
+		/**
+		 * Setup the allowed characters list
+		 */
 		HangmanJS.setup_characters = function() {
 			var list = $('.word-characters');
 
@@ -236,9 +244,23 @@ $(function() {
 			}
 		};
 
+		/**
+		 * Setup the game information
+		 */
 		HangmanJS.setup_info = function() {
 			$('.word-length').html(HangmanJS.current_word.length);
+
+			HangmanJS.update_score();
 		};
+
+		/**
+		 * Update the game score view
+		 */
+		HangmanJS.update_score = function() {
+			var holder = $('.attempts-left');
+
+			holder.html(HangmanJS.failed_score - HangmanJS.fail_score);
+		}
 
 		/**
 		 * Reverts the game
