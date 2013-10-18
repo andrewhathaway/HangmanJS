@@ -67,6 +67,10 @@ $(function() {
 			if (document.location.href.indexOf('#game') > -1) {
 				HangmanJS.setup_game();
 			}
+
+			if (document.location.href.indexOf('#credits') > -1) {
+				HangmanJS.view_credits();
+			}
 		};
 
 		/**

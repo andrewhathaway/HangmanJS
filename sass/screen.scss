@@ -55,7 +55,7 @@ input {
 
 	&.credits {
 		left: -100%;
-		background: green;
+		background: #2C858D;
 
 		&.show {
 			left: 0;
@@ -104,48 +104,48 @@ input {
 	}
 }
 
-.game-section.game {
+.game-section .menu-bar {
+	width: 100%;
+	height: 45px;
+	padding: 5px;
+	position: relative;
+	margin-bottom: 50px;
+	@include border-radius(5px);
+	background: rgba(0, 0, 0, .05);
+	@include box-sizing(border-box);
 
-	.menu-bar {
-		width: 100%;
-		height: 45px;
-		padding: 5px;
-		position: relative;
-		margin-bottom: 50px;
+	a.link {
+		width: auto;
+		height: 35px;
+		padding: 0 20px;
+		display: inline-block;
 		@include border-radius(5px);
-		background: rgba(0, 0, 0, .05);
-		@include box-sizing(border-box);
+		background: rgba(0, 0, 0, .1);
+		@include transition(all .25s ease);
 
-		a.link {
-			width: auto;
-			height: 35px;
-			padding: 0 20px;
-			display: inline-block;
-			@include border-radius(5px);
-			background: rgba(0, 0, 0, .1);
-			@include transition(all .25s ease);
+		color: white;
+		line-height: 35px;
+		text-decoration: none;
+		font-weight: 700;
 
-			color: white;
-			line-height: 35px;
-			text-decoration: none;
-			font-weight: 700;
-
-			&:hover {
-				background: rgba(0, 0, 0, .2);
-			}
-		}
-
-		.logo {
-			right: 10px;
-			height: 35px;
-			position: absolute;
-
-			img {
-				width: auto;
-				height: 35px;
-			}
+		&:hover {
+			background: rgba(0, 0, 0, .2);
 		}
 	}
+
+	.logo {
+		right: 10px;
+		height: 35px;
+		position: absolute;
+
+		img {
+			width: auto;
+			height: 35px;
+		}
+	}
+}
+
+.game-section.game {
 
 	.game-content {
 
@@ -345,4 +345,20 @@ input {
 			&.left { margin-right: 10px; }
 		}
 	}
+}
+
+.game-section.credits {
+
+	.col {
+		float: left;
+	}
+
+	.left-col {
+
+	}
+
+	.right {
+
+	}
+
 }

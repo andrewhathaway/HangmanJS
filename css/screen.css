@@ -111,7 +111,7 @@ input {
 }
 .game-section.credits {
   left: -100%;
-  background: green;
+  background: #2C858D;
 }
 .game-section.credits.show {
   left: 0;
@@ -162,7 +162,7 @@ input {
   background: #106693;
 }
 
-.game-section.game .menu-bar {
+.game-section .menu-bar {
   width: 100%;
   height: 45px;
   padding: 5px;
@@ -178,7 +178,7 @@ input {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.game-section.game .menu-bar a.link {
+.game-section .menu-bar a.link {
   width: auto;
   height: 35px;
   padding: 0 20px;
@@ -198,18 +198,19 @@ input {
   text-decoration: none;
   font-weight: 700;
 }
-.game-section.game .menu-bar a.link:hover {
+.game-section .menu-bar a.link:hover {
   background: rgba(0, 0, 0, 0.2);
 }
-.game-section.game .menu-bar .logo {
+.game-section .menu-bar .logo {
   right: 10px;
   height: 35px;
   position: absolute;
 }
-.game-section.game .menu-bar .logo img {
+.game-section .menu-bar .logo img {
   width: auto;
   height: 35px;
 }
+
 .game-section.game .game-content .word-info,
 .game-section.game .game-content .used-words,
 .game-section.game .game-content .game-information {
@@ -421,4 +422,8 @@ input {
 }
 .overlay .modal a.left {
   margin-right: 10px;
+}
+
+.game-section.credits .col {
+  float: left;
 }
