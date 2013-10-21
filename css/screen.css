@@ -211,6 +211,24 @@ input {
   height: 35px;
 }
 
+.game-section.game .left-game-col {
+  float: left;
+  width: 395px;
+}
+.game-section.game .right-game-col {
+  float: right;
+  width: 300px;
+  padding: 5px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.05);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 .game-section.game .game-content .word-info,
 .game-section.game .game-content .used-words,
 .game-section.game .game-content .game-information {
@@ -231,13 +249,12 @@ input {
   font-size: 18px;
   font-weight: 700;
 }
-.game-section.game .game-content .word-info,
-.game-section.game .game-content .game-information {
+.game-section.game .game-content .word-info {
   height: 175px;
 }
 .game-section.game .game-content .word-info {
-  float: left;
   width: 395px;
+  margin-bottom: 5px;
 }
 .game-section.game .game-content .word-info .enter-char {
   padding: 10px;
@@ -273,8 +290,7 @@ input {
   background: rgba(255, 255, 255, 0.8);
 }
 .game-section.game .game-content .game-information {
-  float: right;
-  width: 300px;
+  width: 395px;
 }
 .game-section.game .game-content .game-information h2 {
   margin-bottom: 10px;

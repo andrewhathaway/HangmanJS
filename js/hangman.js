@@ -59,10 +59,22 @@ $(function() {
 		HangmanJS.correctly_guessed = 0;
 
 		/**
+		 * The Character canvas
+		 */
+		HangmanJS.canvas = null;
+
+		/**
+		 * Canvas Context
+		 */
+		HangmanJS.character_ctx = null;
+
+		/**
 		 * Initiate HangmanJS
 		 */
 		this.init = function() {
 			HangmanJS.bind_menu();
+
+			HangmanJS.setup_canvas();
 
 			if (document.location.href.indexOf('#game') > -1) {
 				HangmanJS.setup_game();
@@ -89,7 +101,7 @@ $(function() {
 				e.preventDefault();
 				HangmanJS.view_credits();
 			});
-		}
+		};
 
 		/**
 		 * View the credits page
@@ -113,7 +125,7 @@ $(function() {
 
 			HangmanJS.bind_enter_character();
 			HangmanJS.setup_alphabet();
-		}
+		};
 
 		/**
 		 * Open the game window
@@ -130,7 +142,7 @@ $(function() {
 			$('.js-to-menu').click(function(e) {
 				HangmanJS.to_menu($(this).data('from'));
 			});
-		}
+		};
 
 		/**
 		 * Go to the menu
@@ -175,7 +187,7 @@ $(function() {
 				var next_char = alphabet.charAt(i);
 				list.append('<li data-char="' + next_char + '">' + next_char + '</li>');
 			}
-		}
+		};
 
 		/**
 		 * Bind the event handler for character enter
@@ -194,7 +206,7 @@ $(function() {
 					input.val('');
 				}
 			});
-		}
+		};
 
 		/**
 		 * Character delegate
@@ -238,7 +250,7 @@ $(function() {
 					}
 				}
 			}
-		}
+		};
 
 		/**
 		 * Setup the allowed characters list
@@ -267,7 +279,58 @@ $(function() {
 			var holder = $('.attempts-left');
 
 			holder.html(HangmanJS.failed_score - HangmanJS.fail_score);
-		}
+		};
+
+		/**
+		 * Setup the game canvas
+		 */
+		HangmanJS.setup_canvas = function() {
+			HangmanJS.character = $('#character');
+			HangmanJS.character = HangmanJS.character[0];
+
+			HangmanJS.character_ctx = HangmanJS.character.getContext('2d');
+			//HangmanJS.character_ctx.translate(0.5, 0.5);
+
+			HangmanJS.character_parts.frame();
+		};
+
+		/**
+		 * Functions to add the character parts
+		 *
+		 * 1) Frame
+		 * 2) Noose
+		 * 3) Head
+		 * 4) Body
+		 * 5) Left Arm
+		 * 6) Right Arm
+		 * 7) Left Lef
+		 * 8) Right Leg
+		 */
+		HangmanJS.character_parts =  {
+
+			frame: function() {
+
+				HangmanJS.character_ctx.beginPath();
+				HangmanJS.character_ctx.moveTo(0, 399);
+				HangmanJS.character_ctx.lineTo(300, 399);
+				HangmanJS.character_ctx.lineWidth = 2;
+				HangmanJS.character_ctx.stroke();
+
+				HangmanJS.character_ctx.beginPath();
+				HangmanJS.character_ctx.moveTo(40, 5);
+				HangmanJS.character_ctx.lineTo(40, 400);
+				HangmanJS.character_ctx.lineWidth = 2;
+				HangmanJS.character_ctx.stroke();
+
+				HangmanJS.character_ctx.beginPath();
+				HangmanJS.character_ctx.moveTo(40, 5);
+				HangmanJS.character_ctx.lineTo(HangmanJS.character.width / 2, 5);
+				HangmanJS.character_ctx.lineWidth = 2;
+				HangmanJS.character_ctx.stroke();
+
+			}
+
+		};
 
 		/**
 		 * Reverts the game

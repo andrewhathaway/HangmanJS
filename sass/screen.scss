@@ -147,6 +147,20 @@ input {
 
 .game-section.game {
 
+	.left-game-col {
+		float: left;
+		width: 395px;
+	}
+
+	.right-game-col {
+		float: right;
+		width: 300px;
+		padding: 5px;
+		@include border-radius(3px);
+		background: rgba(0, 0, 0, .05);
+		@include box-sizing(border-box);
+	}
+
 	.game-content {
 
 		.word-info,
@@ -163,14 +177,13 @@ input {
 			}
 		}
 
-		.word-info,
-		.game-information {
+		.word-info {
 			height: 175px;
 		}
 
 		.word-info {
-			float: left;
 			width: 395px;
+			margin-bottom: 5px;
 
 			.enter-char {
 				padding: 10px;
@@ -199,8 +212,7 @@ input {
 		}
 
 		.game-information {
-			float: right;
-			width: 300px;
+			width: 395px;
 
 			h2 {
 				margin-bottom: 10px;
