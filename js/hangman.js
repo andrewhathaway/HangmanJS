@@ -463,6 +463,9 @@ $(function() {
 			HangmanJS.fail_score = 0;
 			HangmanJS.correctly_guessed = 0;
 
+			HangmanJS.character.width = HangmanJS.character.width;
+			HangmanJS.current_body_part = 0;
+
 			$('.word-characters').html('');
 
 			$('#overlay').removeClass('show');
