@@ -322,6 +322,9 @@ input {
 .game-section.game .game-content .used-words .alphabet li.used {
   background: #FF4E51;
 }
+.game-section.game .game-content .used-words .alphabet li.in-word {
+  background: #70CD6B;
+}
 
 .word-characters {
   clear: both;

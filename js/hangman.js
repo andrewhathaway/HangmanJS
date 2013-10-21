@@ -204,9 +204,12 @@ $(function() {
 
 			if ($.inArray(character, HangmanJS.used_characters) == -1) {
 				HangmanJS.used_characters.push(character);
+
 				$('#alphabet li[data-char=' + character + ']').addClass('used');
 
 				if ($.inArray(character, HangmanJS.current_word.chars) > -1) {
+
+					$('#alphabet li[data-char=' + character + ']').addClass('in-word');
 
 					for (var i = 0; i < HangmanJS.current_word.chars.length; i++) {
 
