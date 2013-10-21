@@ -69,12 +69,29 @@ $(function() {
 		HangmanJS.character_ctx = null;
 
 		/**
+		 * Current body part count
+		 */
+		 HangmanJS.current_body_part = 0;
+
+		/**
+		 * Maps part id's to functions
+		 */
+		HangmanJS.body_parts = [
+			'frame',
+			'noose',
+			'head',
+			'body',
+			'left_arm',
+			'right_arm',
+			'left_leg',
+			'right_leg'
+		];
+
+		/**
 		 * Initiate HangmanJS
 		 */
 		this.init = function() {
 			HangmanJS.bind_menu();
-
-			HangmanJS.setup_canvas();
 
 			if (document.location.href.indexOf('#game') > -1) {
 				HangmanJS.setup_game();
@@ -122,6 +139,8 @@ $(function() {
 
 			HangmanJS.setup_characters();
 			HangmanJS.setup_info();
+
+			HangmanJS.setup_canvas();
 
 			HangmanJS.bind_enter_character();
 			HangmanJS.setup_alphabet();
@@ -241,6 +260,8 @@ $(function() {
 				} else {
 					HangmanJS.fail_score++;
 
+					HangmanJS.add_body_part();
+
 					HangmanJS.update_score();
 
 					if (HangmanJS.fail_score >= HangmanJS.failed_score) {
@@ -289,14 +310,25 @@ $(function() {
 			HangmanJS.character = HangmanJS.character[0];
 
 			HangmanJS.character_ctx = HangmanJS.character.getContext('2d');
-
-			HangmanJS.character_parts.frame();
-			HangmanJS.character_parts.noose();
-			HangmanJS.character_parts.head();
 		};
 
 		/**
-		 * Functions to add the character parts
+		 * Adds another body part to the canvas
+		 */
+		HangmanJS.add_body_part = function() {
+			var part;
+
+			if (HangmanJS.current_body_part < HangmanJS.body_parts.length) {
+				part = HangmanJS.body_parts[HangmanJS.current_body_part];
+
+				HangmanJS.character_parts[part]();
+				HangmanJS.current_body_part++;
+			}
+
+		};
+
+		/**
+		 * Character parts - Canvas
 		 *
 		 * 1) Frame
 		 * 2) Noose
@@ -306,6 +338,9 @@ $(function() {
 		 * 6) Right Arm
 		 * 7) Left Lef
 		 * 8) Right Leg
+		 *
+		 * Needs work...just looks ugly.
+		 * Arm and legs could be refactored into one
 		 */
 		HangmanJS.character_parts =  {
 
@@ -353,6 +388,67 @@ $(function() {
 				HangmanJS.character_ctx.strokeStyle = '#ffffff';
 				HangmanJS.character_ctx.stroke();
 
+			},
+
+			body: function() {
+
+				HangmanJS.character_ctx.beginPath();
+				HangmanJS.character_ctx.moveTo(HangmanJS.character.width / 2, 100);
+				HangmanJS.character_ctx.lineTo(HangmanJS.character.width / 2, 250);
+				HangmanJS.character_ctx.lineWidth = 2;
+				HangmanJS.character_ctx.strokeStyle = '#ffffff';
+				HangmanJS.character_ctx.stroke();
+
+			},
+
+			arm: function(side) {
+				side = side || 'left';
+
+				var start_x = (HangmanJS.character.width / 2) - 50;
+
+				if (side == 'right') {
+					start_x = (HangmanJS.character.width / 2) + 50;
+				}
+
+				HangmanJS.character_ctx.beginPath();
+				HangmanJS.character_ctx.moveTo(HangmanJS.character.width / 2, 150);
+				HangmanJS.character_ctx.lineTo(start_x, 180);
+				HangmanJS.character_ctx.lineWidth = 2;
+				HangmanJS.character_ctx.strokeStyle = '#ffffff';
+				HangmanJS.character_ctx.stroke();
+			},
+
+			leg: function(side) {
+				side = side || 'left';
+
+				var start_x = (HangmanJS.character.width / 2) - 50;
+
+				if (side == 'right') {
+					start_x = (HangmanJS.character.width / 2) + 50;
+				}
+
+				HangmanJS.character_ctx.beginPath();
+				HangmanJS.character_ctx.moveTo(HangmanJS.character.width / 2, 250);
+				HangmanJS.character_ctx.lineTo(start_x, 350);
+				HangmanJS.character_ctx.lineWidth = 2;
+				HangmanJS.character_ctx.strokeStyle = '#ffffff';
+				HangmanJS.character_ctx.stroke();
+			},
+
+			left_arm: function() {
+				this.arm('left');
+			},
+
+			right_arm: function() {
+				this.arm('right');
+			},
+
+			left_leg: function() {
+				this.leg('left');
+			},
+
+			right_leg: function() {
+				this.leg('right');
 			}
 
 		};
