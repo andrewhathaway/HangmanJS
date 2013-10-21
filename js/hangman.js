@@ -168,6 +168,7 @@ $(function() {
 		 */
 		HangmanJS.bind_close = function() {
 			$('.js-to-menu').click(function(e) {
+				e.preventDefault();
 				HangmanJS.to_menu($(this).data('from'));
 			});
 		};
