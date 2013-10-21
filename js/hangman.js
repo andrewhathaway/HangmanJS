@@ -289,9 +289,10 @@ $(function() {
 			HangmanJS.character = HangmanJS.character[0];
 
 			HangmanJS.character_ctx = HangmanJS.character.getContext('2d');
-			//HangmanJS.character_ctx.translate(0.5, 0.5);
 
 			HangmanJS.character_parts.frame();
+			HangmanJS.character_parts.noose();
+			HangmanJS.character_parts.head();
 		};
 
 		/**
@@ -314,18 +315,42 @@ $(function() {
 				HangmanJS.character_ctx.moveTo(0, 399);
 				HangmanJS.character_ctx.lineTo(300, 399);
 				HangmanJS.character_ctx.lineWidth = 2;
+				HangmanJS.character_ctx.strokeStyle = '#ffffff';
 				HangmanJS.character_ctx.stroke();
 
 				HangmanJS.character_ctx.beginPath();
 				HangmanJS.character_ctx.moveTo(40, 5);
 				HangmanJS.character_ctx.lineTo(40, 400);
 				HangmanJS.character_ctx.lineWidth = 2;
+				HangmanJS.character_ctx.strokeStyle = '#ffffff';
 				HangmanJS.character_ctx.stroke();
+
+			},
+
+			noose: function() {
 
 				HangmanJS.character_ctx.beginPath();
 				HangmanJS.character_ctx.moveTo(40, 5);
 				HangmanJS.character_ctx.lineTo(HangmanJS.character.width / 2, 5);
 				HangmanJS.character_ctx.lineWidth = 2;
+				HangmanJS.character_ctx.strokeStyle = '#ffffff';
+				HangmanJS.character_ctx.stroke();
+
+				HangmanJS.character_ctx.beginPath();
+				HangmanJS.character_ctx.moveTo(HangmanJS.character.width / 2, 5);
+				HangmanJS.character_ctx.lineTo(HangmanJS.character.width / 2, 30);
+				HangmanJS.character_ctx.lineWidth = 2;
+				HangmanJS.character_ctx.strokeStyle = '#ffffff';
+				HangmanJS.character_ctx.stroke();
+
+			},
+
+			head: function() {
+
+				HangmanJS.character_ctx.beginPath();
+				HangmanJS.character_ctx.arc(HangmanJS.character.width / 2, 65, 35, 0, 2 * Math.PI, false);
+				HangmanJS.character_ctx.lineWidth = 2;
+				HangmanJS.character_ctx.strokeStyle = '#ffffff';
 				HangmanJS.character_ctx.stroke();
 
 			}
