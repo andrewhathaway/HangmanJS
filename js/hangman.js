@@ -1,5 +1,14 @@
 $(function() {
 
+	/**
+	 * HangmanJS - Andrew Hathaway
+	 *
+	 * @todo: Replace "current_body_part" with "fail_score"
+	 * @todo: Refactor body_parts. Legs/arms should use same function
+	 * @todo: Consider moving words to private place
+	 *
+	 */
+
 	var HangmanJS = function() {
 
 		/**
@@ -261,7 +270,6 @@ $(function() {
 					HangmanJS.fail_score++;
 
 					HangmanJS.add_body_part();
-
 					HangmanJS.update_score();
 
 					if (HangmanJS.fail_score >= HangmanJS.failed_score) {
@@ -340,7 +348,6 @@ $(function() {
 		 * 8) Right Leg
 		 *
 		 * Needs work...just looks ugly.
-		 * Arm and legs could be refactored into one
 		 */
 		HangmanJS.character_parts =  {
 
